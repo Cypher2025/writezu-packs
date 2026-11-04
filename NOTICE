@@ -1,2 +1,5 @@
 Each file published in this repository's releases is distributed under its own licence, as given in
-README.md beside it (FFmpeg: GNU LGPL v3). Nothing here is Writezu's own code.
+README.md beside it (FFmpeg: GNU LGPL v3; Intel Open Image Denoise: Apache 2.0; WavLM: MIT).
+There is no Writezu program code here. The AI voice pack's speak.onnx is Writezu's own voice model,
+made by Chrono Travel, LLC, licensed for use with Writezu only, and trained on LibriTTS under
+Creative Commons Attribution 4.0 (credits in README.md and in the pack's NOTICE.txt).
