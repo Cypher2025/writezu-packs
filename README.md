@@ -1,7 +1,8 @@
 # writezu-packs
 
-Programs that [Writezu](https://writezu.com) downloads on request, kept here so each one stays available at
-exactly the version Writezu was tested with. **Binaries and their sources only. There is no Writezu code here.**
+Programs and models that [Writezu](https://writezu.com) downloads on request, kept here so each one stays available at
+exactly the version Writezu was tested with. **Other makers' programs are here unchanged, with their sources. There is no Writezu program code here.**
+The one thing made by Writezu's makers is the AI voice model in the AI voice pack (below).
 
 Writezu pins every file by its SHA-256 and refuses any file that doesn't match.
 
@@ -30,3 +31,32 @@ Release: [`ffmpeg-9.0.2-lgpl`](../../releases/tag/ffmpeg-9.0.2-lgpl)
   It encodes H.264 on the graphics card (NVENC, Quick Sync or AMF) or with Windows' own Media Foundation encoder.
 
 FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project. This repository is not affiliated with the FFmpeg project or with BtbN.
+
+## Intel Open Image Denoise 2.4.1, Windows x64
+
+Release: [`oidn-2.4.1`](../../releases/tag/oidn-2.4.1)
+
+| File | SHA-256 |
+|---|---|
+| `oidn-2.4.1.x64.windows.zip` | `682d94ba57525ed177d73412e0ed903f576867bd048f830a5c6f63c56b25e8b8` |
+| `oidn-2.4.1.src.tar.gz` | `9c7c77ae0d57e004479cddb7aaafd405c2cc745153bed4805413c21be610e17b` |
+| `LICENSE-oidn-Apache-2.0.txt` | `3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5` |
+
+- **What it is:** Intel's own [v2.4.1 release](https://github.com/RenderKit/oidn/releases/tag/v2.4.1), the Windows x64 build, byte-for-byte unchanged. Every program and library inside is signed by Intel Corporation.
+- **Licence:** Apache 2.0. Its third-party programs and their licences are in the `third-party-programs` files in the release, which are also inside the zip.
+- **What Writezu uses it for:** taking the grain out of 3D renders.
+
+## Writezu AI voice pack 1
+
+Release: [`ai-voice-1`](../../releases/tag/ai-voice-1)
+
+| File | SHA-256 |
+|---|---|
+| `ai-voice-pack-1.zip` | `2e67620b60fa1e58a6e589953e2a73ed84ed8d83028e7401428f344246884454` |
+
+- **What's in it:**
+  - `hear.onnx`: the first layers of Microsoft's [WavLM Large](https://github.com/microsoft/unilm/tree/master/wavlm), which turns speech into what was said and how. Exported to ONNX from torchaudio's `WAVLM_LARGE` weights, unchanged. **Licence:** MIT (`LICENSE-WavLM.txt`, in the zip).
+  - `speak.onnx`: **Writezu's own voice model**, made by Chrono Travel, LLC, which speaks those sounds back in the voice it's given. Licensed for use with Writezu only. It was trained on [LibriTTS](https://www.openslr.org/60/) (train-clean-100, by Heiga Zen, Viet Dang, Rob Clark, Yu Zhang, Ron J. Weiss, Ye Jia, Zhifeng Chen and Yonghui Wu at Google), under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/). It holds no one reader's voice.
+  - `NOTICE.txt`: all of the above.
+- Both models are plain ONNX files: standard operators with their weights inside, nothing that runs code. Writezu runs them on the user's own computer with Microsoft's ONNX Runtime, fetched from Microsoft's own package. Nothing anyone says leaves their computer.
+- **What Writezu uses it for:** making AI voices from recordings people make with permission, and speaking in them live.
